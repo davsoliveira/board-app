@@ -30,7 +30,6 @@ export default async function Board({ searchParams }: BoardProps) {
           <Section.IssueCount>{issues.backlog.length}</Section.IssueCount>
         </Section.Header>
 
-        {/* Content */}
         <Section.Content>
           {issues.backlog.length === 0 ? (
             <div className="flex items-center justify-center py-8 text-center">
@@ -40,7 +39,7 @@ export default async function Board({ searchParams }: BoardProps) {
             </div>
           ) : (
             issues.backlog.map((issue) => (
-              <Card.Root key={issue.id}>
+              <Card.Root href={`/issues/${issue.id}`} key={issue.id}>
                 <Card.Header>
                   <Card.Number>ISS-{issue.issueNumber}</Card.Number>
                   <Card.Title>{issue.title}</Card.Title>
@@ -72,7 +71,6 @@ export default async function Board({ searchParams }: BoardProps) {
           <Section.IssueCount>{issues.todo.length}</Section.IssueCount>
         </Section.Header>
 
-        {/* Content */}
         <Section.Content>
           {issues.todo.length === 0 ? (
             <div className="flex items-center justify-center py-8 text-center">
@@ -82,7 +80,7 @@ export default async function Board({ searchParams }: BoardProps) {
             </div>
           ) : (
             issues.todo.map((issue) => (
-              <Card.Root key={issue.id}>
+              <Card.Root href={`/issues/${issue.id}`} key={issue.id}>
                 <Card.Header>
                   <Card.Number>ISS-{issue.issueNumber}</Card.Number>
                   <Card.Title>{issue.title}</Card.Title>
@@ -114,7 +112,6 @@ export default async function Board({ searchParams }: BoardProps) {
           <Section.IssueCount>{issues.in_progress.length}</Section.IssueCount>
         </Section.Header>
 
-        {/* Content */}
         <Section.Content>
           {issues.in_progress.length === 0 ? (
             <div className="flex items-center justify-center py-8 text-center">
@@ -124,7 +121,7 @@ export default async function Board({ searchParams }: BoardProps) {
             </div>
           ) : (
             issues.in_progress.map((issue) => (
-              <Card.Root key={issue.id}>
+              <Card.Root href={`/issues/${issue.id}`} key={issue.id}>
                 <Card.Header>
                   <Card.Number>ISS-{issue.issueNumber}</Card.Number>
                   <Card.Title>{issue.title}</Card.Title>
@@ -156,7 +153,6 @@ export default async function Board({ searchParams }: BoardProps) {
           <Section.IssueCount>{issues.done.length}</Section.IssueCount>
         </Section.Header>
 
-        {/* Content */}
         <Section.Content>
           {issues.done.length === 0 ? (
             <div className="flex items-center justify-center py-8 text-center">
@@ -166,7 +162,7 @@ export default async function Board({ searchParams }: BoardProps) {
             </div>
           ) : (
             issues.done.map((issue) => (
-              <Card.Root key={issue.id}>
+              <Card.Root href={`/issues/${issue.id}`} key={issue.id}>
                 <Card.Header>
                   <Card.Number>ISS-{issue.issueNumber}</Card.Number>
                   <Card.Title>{issue.title}</Card.Title>
