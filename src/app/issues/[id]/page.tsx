@@ -1,4 +1,3 @@
-import { Button } from "@/components/button";
 import { getIssue } from "@/http/get-issue";
 import {
   MoveLeftIcon,
@@ -12,6 +11,8 @@ import { IssueCommentsList } from "./issue-comments/issue-comments-list";
 import { Suspense } from "react";
 import { IssueCommentsSkeleton } from "./issue-comments/issue-comments-skeleton";
 import { Input } from "@/components/input";
+import { IssueLikeButton } from "./issue-like-button";
+import { Skeleton } from "@/components/skeleton";
 
 interface IssuePageProps {
   params: Promise<{ id: string }>;
@@ -57,10 +58,9 @@ export default async function IssuePage({ params }: IssuePageProps) {
           {statusLabels[issue.status]}
         </span>
 
-        <Button>
-          <ThumbsUpIcon className="size-3" />
-          <span className="text-sm">12</span>
-        </Button>
+        <Suspense fallback={<Skeleton className="h-7 w-16" />}>
+          <IssueLikeButton issueId={issue.id} />
+        </Suspense>
       </div>
 
       <div className="space-y-2">
