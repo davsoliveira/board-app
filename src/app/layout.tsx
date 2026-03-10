@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NuqsAdapter } from "nuqs/adapters/next";
 import { ReactQueryProvider } from "@/lib/react-query";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -24,12 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={interFont.className}>
       <body className="bg-navy-950 text-navy-50 antialiased">
-        <ReactQueryProvider>
-          <NuqsAdapter>
-            {modal}
-            {children}
-          </NuqsAdapter>
-        </ReactQueryProvider>
+        <Suspense fallback={null}>
+          <ReactQueryProvider>
+            <NuqsAdapter>
+              {modal}
+              {children}
+            </NuqsAdapter>
+          </ReactQueryProvider>
+        </Suspense>
       </body>
     </html>
   );
