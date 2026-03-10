@@ -3,6 +3,7 @@ import { MoveLeftIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { IssueDetails } from "./issue-details";
+import { Suspense } from "react";
 
 interface IssuePageProps {
   params: Promise<{ id: string }>;
@@ -33,7 +34,9 @@ export default async function IssuePage({ params }: IssuePageProps) {
         <span className="text-xs">Back to board</span>
       </Link>
 
-      <IssueDetails issueId={id} />
+      <Suspense fallback={<p>Loading issue...</p>}>
+        <IssueDetails issueId={id} />
+      </Suspense>
     </main>
   );
 }
